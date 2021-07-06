@@ -59,11 +59,10 @@ tanggal TEXT
   Future<List<Penjualan>> getPenjualanList() async{
     var penjualanMapList=await select();
     int count=penjualanMapList.length; print("INI JUMLAH $count");
-    List<Penjualan> penjualanList=List<Penjualan>();
+    List<Penjualan> penjualanList=<Penjualan>[];
     for(int i=0; i<count; i++){
       penjualanList.add(Penjualan.fromMap(penjualanMapList[i]));
     }
     return penjualanList;
   }
 }
-

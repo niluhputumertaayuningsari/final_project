@@ -6,7 +6,9 @@ class ProdukList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Daftar menu")),
+      appBar: AppBar(
+        backgroundColor: Colors.orange[500],
+        title: Text("Produk")),
       body: ListView(
         shrinkWrap: true,
         padding: const EdgeInsets.fromLTRB(2, 10, 2, 10),
@@ -208,3 +210,4 @@ class ProductBox extends StatelessWidget {
     );
   }
 }
+

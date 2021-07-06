@@ -33,6 +33,7 @@ class _DetailProdukState extends State<DetailProduk> {
     }
     return Scaffold(
       appBar: new AppBar(
+        backgroundColor: Colors.orange[500],
         //title detail produk yang isinya name produk dalam widget text
         title: new Text("${widget.name}"),
       ),
@@ -50,7 +51,7 @@ class _DetailProdukState extends State<DetailProduk> {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [const Color(0xff3164bd), const Color(0xff295cb5)],
+                  colors: [const Color(0xff3145bd), const Color(0xff295cb5)],
                 ),
               ),
               padding: EdgeInsets.all(10),

@@ -28,6 +28,7 @@ class _InputPenjualanState extends State<InputPenjualan> {
     }
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orange[500],
         title: penjualan==null?Text("Transaksi Baru"):Text("Update Transaksi"),
       ),
       body: Padding(
@@ -52,22 +53,7 @@ class _InputPenjualanState extends State<InputPenjualan> {
                 },
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(10.0),
-              child:  TextField(
-                controller: jumlahController,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  labelText: "Harga",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(3.0)
-                  ),
-                ),
-                onChanged: (value){
 
-                },
-              ),
-            ),
             Padding(
               padding: EdgeInsets.all(10.0),
               child:  TextField(
@@ -80,7 +66,22 @@ class _InputPenjualanState extends State<InputPenjualan> {
                   ),
                 ),
                 onChanged: (value){
+                },
+              ),
+            ),
 
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child:  TextField(
+                controller: jumlahController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: "Harga",
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(3.0)
+                  ),
+                ),
+                onChanged: (value){
                 },
               ),
             ),
@@ -98,7 +99,6 @@ class _InputPenjualanState extends State<InputPenjualan> {
                           firstDate: DateTime(2020),
                           initialDate: currentValue??DateTime.now(),
                           lastDate: DateTime(2045)
-
                       );
                     },
                     decoration: InputDecoration(

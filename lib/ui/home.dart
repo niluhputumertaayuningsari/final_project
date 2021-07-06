@@ -21,10 +21,12 @@ class _HomeState extends State<Home> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text('Aplikasi Scarlett'),
+        backgroundColor: Colors.orange[500],
+        title: Text('Scarlett Official'),
       ),
       body: createListView(),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.orange[500],
           child: Icon(Icons.add),
           tooltip: 'Input Data',
           onPressed: () async {

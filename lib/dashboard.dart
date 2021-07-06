@@ -1,4 +1,7 @@
+import 'package:application/detail_produk.dart';
+import 'package:application/productlist.dart';
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -6,20 +9,23 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  get onChanged => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orange[500],
         title:
         // menyusun tulisan secara horizontal dan di tengah
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          Text('Dashboard'),
+        Row(children: <Widget>[
+          Text('Scarlett Official'),
         ]),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.notifications_active),
             onPressed: () {
-              print('clik start');
+              print('clik notifikasi');
             },
           ),
         ],
@@ -38,9 +44,7 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
               decoration: BoxDecoration( //untuk background foto di drawer
-                image: DecorationImage(
-                    image: AssetImage('assets/appimages/logo 1.png'),
-                    fit: BoxFit.cover),
+                color: Colors.orange[500]
               )),
           new ListTile( // listtile merupakan anak dari listview yang berupa menu
             title: new Text('Notifications'),
@@ -63,134 +67,150 @@ class _DashboardState extends State<Dashboard> {
 //seluruh body dibungkus colum
       body: new ListView(
         children: <Widget>[
-          Image.asset("assets/appimages/logo.jpg"),
 //setiap bagian pada body dipisahkan container yang berisikan ringkasan aplikasi
           Container(
-            color: Colors.yellow[300],
-            padding: const EdgeInsets.all(10),
+            margin: EdgeInsets.all(20),
+            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+            decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            border: Border.all(
+              color: ksecondaryColor.withOpacity(0.32),
+        ),
+      ),
 //untuk membuat tampilan secara horizontal digunakan row
             child: Row(
               children: [
                 Expanded( // dihabiskan agar tidak terlalu kekiri dan terlalu kekanan
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Rp 75.000',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
-                      Text(
-                        'Under 75.000',
-                        style: TextStyle(
-                          color: Colors.black87,
-                        ),
-                      ),
-                    ],
+                  child: TextField(
+                  onChanged: onChanged,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    icon: Icon(Icons.search),
+                    hintText: "Search Here",
+                    hintStyle: TextStyle(color: ksecondaryColor),
+                    ), 
                   ),
                 ),
-                Icon(
-                  Icons.local_offer,
-                  color: Colors.red[500],
-                ),
-                Text('Diskon 10%'),
               ],
             ),
           ),
+          Image.asset("assets/appimages/logo.jpg"),
 //setiap bagian pada body dipisahkan container
-          Container(
-            padding: EdgeInsets.only(top: 10, bottom: 10),
-            decoration: BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Theme.of(context).dividerColor)),
-            ),
-//untuk membuat tampilan secara horizontal maka digunakan row
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-//untuk membuat tampilan secara vertikal maka digunakan colum
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(Icons.grid_on, color: Colors.blue),
-                    Container(
-                      margin: const EdgeInsets.only(top: 8),
-                      child: Text(
-                        "Semua Menu",
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ),
-                  ],
+      Container(
+      height: 23,
+      width: double.infinity,
+      margin: EdgeInsets.only(top: 30),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'BodyCare',
+                style: TextStyle(
+              fontWeight: FontWeight.bold,
                 ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(Icons.accessibility, color: Colors.blue),
-                    Container(
-                      margin: const EdgeInsets.only(top: 8),
-                      child: Text(
-                        "BodyCare",
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ),
-                  ],
+              ),
+              Container(
+                width: 10,
+                height: 2,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(1),
+                  color: kPrimaryColor,
                 ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(Icons.mood_outlined, color: Colors.blue),
-                    Container(
-                      margin: const EdgeInsets.only(top: 8),
-                      child: Text(
-                        "FacialCare",
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(Icons.format_list_bulleted, color: Colors.blue),
-                    Container(
-                      margin: const EdgeInsets.only(top: 8),
-                      child: Text(
-                        "Lain-lain",
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
-              ],
+              ),
+            ],
+          ),
+          Text(
+            'SkinCare',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
             ),
           ),
+          Text(
+            'HairCare',
+           style: TextStyle (
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            'Other',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    ),
+
+    Container(
+      margin: EdgeInsets.only(top: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Popular Product',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ]
+      ),
+    ),
+
+    new GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                new MaterialPageRoute(
+                    builder: (BuildContext content) => DetailProduk(
+                      name: "Pomegrante (Brightening Shower Scrub)",
+                      description: "Shower scrub dengan aroma Pomegrante",
+                      price: 75000,
+                      image: "shower 2.jpg",
+                      star: 5,
+                    )),
+              );
+            },
+            child: ProductBox(
+              nama: "Pomegrante (Brightening Shower Scrub)",
+              deskripsi: "Shower scrub dengan aroma Pomegrante",
+              harga: 75000,
+              image: "shower 2.jpg",
+              star: 5,
+            ),
+          ),
+
+          new GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                new MaterialPageRoute(
+                    builder: (BuildContext content) => DetailProduk(
+                      name: "Romansa (Fragrance Brightening Body Lotion)",
+                      description: "Body lotion dengan aroma Romansa",
+                      price: 75000,
+                      image: "lotion 3.jpg",
+                      star: 5,
+                    )),
+              );
+            },
+            child: ProductBox(
+              nama: "Romansa (Fragrance Brightening Body Lotion)",
+              deskripsi: "Body lotion dengan aroma Romansa",
+              harga: 75000,
+              image: "lotion 3.jpg",
+              star: 5,
+            ),
+          ),
+
           Container(
             padding: EdgeInsets.all(10),
             decoration: new BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [Colors.yellow, Colors.lightBlueAccent],
+                colors: [Colors.white, Colors.white],
               ),
               borderRadius: BorderRadius.circular(5),
             ),
@@ -201,16 +221,11 @@ class _DashboardState extends State<Dashboard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Banyak Varian Baru',
+                        'Offers & Discounts',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
+                            fontWeight: FontWeight.bold, fontSize: 15),
                       ),
-                      Text(
-                        'BodyCare dan FacialCare ',
-                        style: TextStyle(
-                          color: Colors.black87,
-                        ),
-                      ),
+                      Image.asset("assets/appimages/promo.jpeg",width: 400, height: 200,),
                     ],
                   ),
                 ),
